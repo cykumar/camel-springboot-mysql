@@ -1,0 +1,60 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    app.openshift.io/route-disabled: 'false'
+    app.openshift.io/vcs-ref: ''
+    app.openshift.io/vcs-uri: 'https://github.com/cknvs/camel-springboot-mysql.git'
+    deployment.kubernetes.io/revision: '2'
+    image.openshift.io/triggers: >-
+      [{"from":{"kind":"ImageStreamTag","name":"camel-springboot-mysql-git-jdk11:latest","namespace":"camel-jaeger-demo"},"fieldPath":"spec.template.spec.containers[?(@.name==\"camel-springboot-mysql-git-jdk11\")].image","pause":"false"}]
+    openshift.io/generated-by: OpenShiftWebConsole
+  name: camel-springboot-mysql-git-jdk11
+  labels:
+    app: camel-springboot-mysql-git-jdk11
+    app.kubernetes.io/component: camel-springboot-mysql-git-jdk11
+    app.kubernetes.io/instance: camel-springboot-mysql-git-jdk11
+    app.kubernetes.io/name: camel-springboot-mysql-git-jdk11
+    app.kubernetes.io/part-of: camel-mysql
+    app.openshift.io/runtime: java
+    app.openshift.io/runtime-version: openjdk-11-ubi8
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: camel-springboot-mysql-git-jdk11
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: camel-springboot-mysql-git-jdk11
+        deploymentconfig: camel-springboot-mysql-git-jdk11
+    spec:
+      containers:
+        - name: camel-springboot-mysql-git-jdk11
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/camel-jaeger-demo/camel-springboot-mysql-git-jdk11@sha256:51b613a050a9f10b744c3737f5bff625660d677e3c353110bce0dd811e2438c6
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+            - containerPort: 8443
+              protocol: TCP
+            - containerPort: 8778
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
