@@ -3,7 +3,7 @@ apiVersion: image.openshift.io/v1
 metadata:
   annotations:
     app.openshift.io/vcs-ref: ''
-    app.openshift.io/vcs-uri: 'https://github.com/cknvs/camel-springboot-mysql.git'
+    app.openshift.io/vcs-uri: 'https://github.com/cykumar/camel-springboot-mysql.git'
     openshift.io/generated-by: OpenShiftWebConsole
   name: camel-springboot-mysql-git-jdk11
   labels:

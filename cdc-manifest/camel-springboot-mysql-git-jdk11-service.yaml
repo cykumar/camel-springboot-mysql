@@ -12,7 +12,7 @@ metadata:
     app.openshift.io/runtime-version: openjdk-11-ubi8
   annotations:
     app.openshift.io/vcs-ref: ''
-    app.openshift.io/vcs-uri: 'https://github.com/cknvs/camel-springboot-mysql.git'
+    app.openshift.io/vcs-uri: 'https://github.com/cykumar/camel-springboot-mysql.git'
     openshift.io/generated-by: OpenShiftWebConsole
 spec:
   ports:
