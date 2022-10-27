@@ -1,0 +1,32 @@
+apiVersion: v1
+data:
+  application.yml: "#\r\n# Licensed to the Apache Software Foundation (ASF) under
+    one or more\r\n# contributor license agreements.  See the NOTICE file distributed
+    with\r\n# this work for additional information regarding copyright ownership.\r\n#
+    The ASF licenses this file to You under the Apache License, Version 2.0\r\n# (the
+    \"License\"); you may not use this file except in compliance with\r\n# the License.
+    \ You may obtain a copy of the License at\r\n#\r\n# http://www.apache.org/licenses/LICENSE-2.0\r\n#\r\n#
+    Unless required by applicable law or agreed to in writing, software\r\n# distributed
+    under the License is distributed on an \"AS IS\" BASIS,\r\n# WITHOUT WARRANTIES
+    OR CONDITIONS OF ANY KIND, either express or implied.\r\n# See the License for
+    the specific language governing permissions and\r\n# limitations under the License.\r\n#\r\n\r\ncamel:\r\n
+    \ springboot:\r\n    # The Camel context name\r\n    name: CamelRestJpa\r\n\r\n
+    \ component:\r\n    servlet:\r\n      mapping:\r\n        contextPath: /camel-rest-jpa/*\r\n\r\nmysql:\r\n
+    \ service:\r\n    # The host of the MySQL database server, can be customized using\r\n
+    \   # the 'MYSQL_SERVICE_HOST' env variable\r\n    host:     rds-mysql-test.cmom5df52mch.us-west-2.rds.amazonaws.com\r\n
+    \   # The port of the MySQL database server, can be customized using\r\n    #
+    the 'MYSQL_SERVICE_PORT' env variable\r\n    port:     3306\r\n    # The database
+    to use, can be customized using the 'MYSQL_SERVICE_DATABASE'\r\n    # env variable\r\n
+    \   database: mydatabase\r\n    username: admin\r\n    # The database password,
+    can be customized using the 'MYSQL_SERVICE_PASSWORD'\r\n    # env variable\r\n
+    \   password: Passw0rd!\r\n\r\nspring:\r\n  # Spring JDBC configuration\r\n  datasource:\r\n
+    \   url:      jdbc:mysql://${mysql.service.host}:${mysql.service.port}/${mysql.service.database}?useSSL=false\r\n
+    \   username: ${mysql.service.username}\r\n    password: ${mysql.service.password}\r\n\r\n
+    \ # Spring Data JPA configuration\r\n  jpa:\r\n    hibernate:\r\n      # To be
+    updated in real production usage!\r\n      ddl-auto: create-drop\r\n    show-sql:
+    false\r\n\r\n# The application configuration properties\r\nexample:\r\n  generateOrderPeriod:
+    10s\r\n  processOrderPeriod: 30s\r\n"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: my-config

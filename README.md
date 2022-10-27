@@ -59,3 +59,19 @@ The Camel application can be stopped pressing <kbd>ctrl</kbd>+<kbd>c</kbd> in th
 The example provides API documentation of the service using Swagger using
 the _context-path_ `camel-rest-jpa/api-doc`. You can access the API documentation
 from your Web browser at <http://localhost:8080/camel-rest-jpa/api-doc>.
+
+
+
+
+### Openshift deployment
+
+### Camel Springboot Test Harness that will write to DB
+
+### Provision namespaces for the CDC demo.
+
+$ oc new-project cdc-demo
+
+### Provision the demo CDC scenario.
+
+$ oc apply -f cdc-manifest/
+
