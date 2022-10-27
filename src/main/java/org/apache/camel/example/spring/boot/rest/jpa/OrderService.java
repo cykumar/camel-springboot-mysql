@@ -1,4 +1,4 @@
-/*
+/**
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -18,23 +18,20 @@ package org.apache.camel.example.spring.boot.rest.jpa;
 
 import java.util.Random;
 
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class OrderService {
 
-    private final BookRepository books;
 
     private final Random amount = new Random();
 
-    public OrderService(BookRepository books) {
-        this.books = books;
-    }
-
     public Order generateOrder() {
         Order order = new Order();
+
         order.setAmount(amount.nextInt(10) + 1);
-        order.setBook(books.findById(amount.nextInt(2) + 1).get());
+
         return order;
     }
 }

@@ -1,4 +1,4 @@
-/*
+/**
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -16,23 +16,15 @@
  */
 package org.apache.camel.example.spring.boot.rest.jpa;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Database {
 
-    private final BookRepository books;
 
-    private final OrderRepository orders;
-
-    public Database(BookRepository books, OrderRepository orders) {
-        this.books = books;
-        this.orders = orders;
-    }
-
-    public Iterable<Book> findBooks() {
-        return books.findAll();
-    }
+    @Autowired
+    OrderRepository orders;
 
     public Order findOrder(Integer id) {
         return orders.findById(id).get();

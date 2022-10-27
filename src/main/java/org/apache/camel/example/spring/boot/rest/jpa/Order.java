@@ -1,4 +1,4 @@
-/*
+/**
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -36,9 +36,6 @@ public class Order {
 
     private int amount;
 
-    @ManyToOne
-    private Book book;
-
     private boolean processed;
 
     @Consumed
@@ -62,13 +59,6 @@ public class Order {
         this.amount = amount;
     }
 
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
 
     public boolean isProcessed() {
         return processed;
