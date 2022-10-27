@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: camel-springboot-mysql-git-jdk11
-labels:
+  labels:
     app: camel-springboot-mysql-git-jdk11
     app.kubernetes.io/component: camel-springboot-mysql-git-jdk11
     app.kubernetes.io/instance: camel-springboot-mysql-git-jdk11
