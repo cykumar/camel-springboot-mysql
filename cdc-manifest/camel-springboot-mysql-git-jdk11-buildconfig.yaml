@@ -34,7 +34,7 @@ spec:
   source:
     type: Git
     git:
-      uri: 'https://github.com/cknvs/camel-springboot-mysql.git'
+      uri: 'https://github.com/cykumar/camel-springboot-mysql.git'
     contextDir: /
   triggers:
     - type: Generic

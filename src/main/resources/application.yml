@@ -25,21 +25,22 @@ camel:
       mapping:
         contextPath: /camel-rest-jpa/*
 
-mysql:
-  service:
+#mysql:
+#  service:
     # The host of the MySQL database server, can be customized using
     # the 'MYSQL_SERVICE_HOST' env variable
-    host:     rds-mysql-test.cmom5df52mch.us-west-2.rds.amazonaws.com
+#    host:     rds-mysql-test.cmom5df52mch.us-west-2.rds.amazonaws.com
     # The port of the MySQL database server, can be customized using
     # the 'MYSQL_SERVICE_PORT' env variable
-    port:     3306
+ #   port:     3306
     # The database to use, can be customized using the 'MYSQL_SERVICE_DATABASE'
     # env variable
-    database: mydatabase
-    username: admin
+  #  database: mydatabase
+  #  username: admin
     # The database password, can be customized using the 'MYSQL_SERVICE_PASSWORD'
     # env variable
-    password: Passw0rd!
+   # password: Passw0rd!
+    
 
 spring:
   # Spring JDBC configuration
